@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import SearchBox from "./components/searchBox";
 import { exercises } from "./data/exercises";
+import FetchData from "./service/fetchData";
 
 export default function App() {
   const [search, setSearch] = useState("");
 
+  FetchData();
   // useEffect(() => {
   //   FetchData(search);
   // }, [search]);
