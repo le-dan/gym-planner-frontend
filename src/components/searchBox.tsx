@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { TbHandClick } from "react-icons/tb";
+import ClickButton from "./ClickButton";
 
 export default function SearchBox(props: any) {
   const [query, setQuery] = useState("");
@@ -16,32 +17,20 @@ export default function SearchBox(props: any) {
   }, [props, query]);
 
   // This is a hook that runs when the component is mounted
-  function handleSubmit(e: any) {
+  function handleClick(e: any) {
     e.preventDefault();
-
-    console.log("Button clicked: " + query);
     props.setSearch(query);
   }
 
-  // Button
-  const ClickButton = () => {
-    return (<button
-      className="h-10 m-4 border-2 border-black rounded-md py-2 px-3 hover:bg-black hover:text-white transition duration-75 ease-in-out"
-      onClick={(e) => handleSubmit(e)}
-    >
-      <TbHandClick className="text-lg" />
-    </button>);
-  }
-
   return (
-    <div className="relative h-1/2 flex justify-center items-center">
+    <div className="relative flex items-center justify-center">
       <input
         type="text"
         placeholder="enter exercise"
-        className="flex h-10 w-22 placeholder:text-center border-2 border-black rounded-md p-2"
+        className="self-center flex h-10 w-22 placeholder:text-center border-2 border-black rounded-md p-2"
         onChange={(event) => setQuery(event.target.value)}
       />
-      <ClickButton />
+      <ClickButton handleClick={(e: any) => handleClick(e)} />
     </div>
   );
 }

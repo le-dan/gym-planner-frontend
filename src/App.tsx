@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import axios from 'axios';
 
-import SearchBox from "./components/SearchBox";
-import UserLogin from "./components/UserLogin";
+import SearchBox from "./components/SearchBox"
+import LoginPopUp from "./components/LoginPopUp";
 
 interface User {
   username: string,
@@ -51,17 +51,21 @@ export default function App() {
   // }, [exerciseData]);
 
   return (
-    <div className="flex flex-col justify-center items-center h-full">
-      <motion.div className="text-6xl" whileHover={{ scale: 1.1 }}>gym-planner</motion.div>
-      <UserLogin />
-      <SearchBox setSearch={setSearch} />
-      <div className="border-2 border-white m-5">
-        {/* {exercises.map(({ id, workout, exercise, repetitions, sets }, i) => (
+    <div className="h-full w-full">
+      <LoginPopUp trigger={true} />
+      <div className="flex justify-center">
+        <motion.div className="mt-5 flex z-0 absolute text-6xl text-red-400" whileHover={{ scale: 1.1 }}>Gym-Planner</motion.div>
+      </div>
+      <div className="z-0 flex justify-center items-center h-full gap-[10rem]">
+        <SearchBox setSearch={setSearch} />
+      </div>
+      {/* <div className="border-2 border-white m-5">
+        {exercises.map(({ id, workout, exercise, repetitions, sets }, i) => (
           <div key={i}>
             workout: {workout}, exercise: {exercise}
           </div>
-        ))} */}
-      </div>
+        ))}
+      </div> */}
     </div>
   );
 }
