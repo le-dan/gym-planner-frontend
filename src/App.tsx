@@ -1,21 +1,35 @@
 import { useEffect, useState } from "react";
 import SearchBox from "./components/searchBox";
-import FetchData from "./service/fetchData";
+import fetchData from "./service/fetchData";
+import axios, { AxiosResponse } from 'axios';
 
 export default function App() {
+
   // use state for updating search
   const [search, setSearch] = useState("");
 
   // use state for updating list of user exercises
-  const [userData, setUserData] = useState(['pog']);
+  const [exerciseData, setExerciseData] = useState([]);
 
   // If search changes, then fetch data from updated search and update user data
   useEffect(() => {
     if (search !== "") {
-      FetchData(search);
-      setUserData(() => FetchData(search));
+      const fetchData = async () => {
+        axios.defaults.baseURL = "http://localhost:8080/";
+        return await axios.get(`api/users/${search}/exercises`).then((response) => {
+          setExerciseData(response.data);
+        }).catch((error) => {
+          console.log(error.data);
+        });
+      }
+      fetchData();
     }
   }, [search]);
+
+  // // prints out exercise data after changing
+  // useEffect(() => {
+  //   console.log(exerciseData);
+  // }, [exerciseData]);
 
   return (
     <div className="flex flex-col justify-center items-center h-full">

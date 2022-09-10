@@ -1,7 +1,9 @@
 import axios from "axios";
+import { useState } from "react";
 
-export default function FetchData(search: String): string[] {
+export default function fetchData(search: String) {
   axios.defaults.baseURL = "http://localhost:8080/";
+
   // axios({
   //   method: 'post',
   //   url: '/addUser',
@@ -13,12 +15,11 @@ export default function FetchData(search: String): string[] {
   axios
     .get(`api/users/${search}/exercises`)
     .then((response) => {
-      // console.log(response.data);
+      console.log(response.data);
       return response.data;
     })
     .catch((error) => {
-      // console.log(error);
-      return error.data;
+      console.log(error.data);
     });
-  return [];
+  return [{}];
 }
