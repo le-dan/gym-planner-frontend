@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import SearchBox from "./components/searchBox";
-import fetchData from "./service/fetchData";
+import fetchData from "./service/fetchExercises";
 import axios, { AxiosResponse } from 'axios';
 
 export default function App() {
@@ -26,10 +26,10 @@ export default function App() {
     }
   }, [search]);
 
-  // // prints out exercise data after changing
-  // useEffect(() => {
-  //   console.log(exerciseData);
-  // }, [exerciseData]);
+  // prints out exercise data after changing
+  useEffect(() => {
+    console.log(exerciseData);
+  }, [exerciseData]);
 
   return (
     <div className="flex flex-col justify-center items-center h-full">
