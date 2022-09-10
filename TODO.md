@@ -1,2 +1,2 @@
-* do enter username
-  * get list of exercises under username
+- learn how to parse data
+- make popup when entering website
