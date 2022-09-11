@@ -40,7 +40,7 @@ export default function LoginPopUp({
 
   return showLogin ? (
     // background div
-    <div className="absolute top-0 z-50 h-full w-full bg-black">
+    <div className="absolute top-0 z-50 flex h-full w-full bg-black">
       <motion.div
         variants={containerVariants}
         initial={"hidden"}
