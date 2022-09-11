@@ -24,26 +24,36 @@ export default function LoginPopUp({
   }, [userList, setShowLogin, username]);
 
   const containerVariants = {
-    initial: { opacity: 0 },
+    hidden: {
+      scale: 0,
+      opacity: 0,
+    },
     visible: {
+      scale: 1,
       opacity: 1,
       transition: {
-        duration: 2.5,
+        duration: 0.5,
         delay: 0.25,
       },
     },
   };
 
   return showLogin ? (
-    <motion.div className="absolute top-0 z-50 h-full w-full bg-black">
-      <motion.div className="absolute mt-9 w-full text-center text-7xl text-white">
+    // background div
+    <div className="absolute top-0 z-50 h-full w-full bg-black">
+      <motion.div
+        variants={containerVariants}
+        initial={"hidden"}
+        animate={"visible"}
+        className="absolute mt-12 w-full text-center text-8xl font-thin text-slate-200"
+      >
         Gym Planner
       </motion.div>
-      <div className="flex h-full w-full flex-col items-center justify-center  gap-4 ">
+      <motion.div className="flex h-full w-full flex-col items-center justify-center  gap-4 ">
         <EnterUserBox setSearch={setUsername} />
         <CreateUserBox />
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   ) : (
     <div></div>
   );
