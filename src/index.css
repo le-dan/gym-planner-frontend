@@ -25,10 +25,14 @@ code {
 
 @layer components {
   .loginCard {
-    @apply relative z-0 flex flex-col rounded-3xl bg-white p-6 shadow-2xl;
+    @apply borderColor relative z-0 flex flex-col rounded-3xl border-[1px] bg-white p-6 shadow-2xl;
   }
 
   .loginText {
     @apply text-center text-xl font-bold text-gray-800;
+  }
+
+  .borderColor {
+    @apply border-purple-300;
   }
 }

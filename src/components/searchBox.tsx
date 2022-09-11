@@ -29,7 +29,7 @@ export default function SearchBox({
   }
 
   return (
-    <div className="relative flex items-center justify-center">
+    <div className="relative z-0 flex items-center justify-center">
       <input
         type="text"
         placeholder={placeHolder}
