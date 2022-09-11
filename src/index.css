@@ -33,6 +33,6 @@ code {
   }
 
   .borderColor {
-    @apply border-purple-300;
+    @apply border-black;
   }
 }

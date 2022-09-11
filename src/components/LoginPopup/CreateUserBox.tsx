@@ -1,12 +1,13 @@
+import { motion } from "framer-motion";
 import { HiOutlinePlus } from "react-icons/hi";
 import ClickButton from "../ClickButton";
-export default function CreateUserBox(props: any) {
+export default function CreateUserBox({ variant }: { variant: any }) {
   return (
-    <div className="loginCard h-1/6">
-      <div className="loginText">create new account</div>
+    <motion.div variants={variant} className="loginCard h-1/6">
+      <div className="loginText">create new user</div>
       <ClickButton onClick={[]}>
         <HiOutlinePlus className="text-lg" />
       </ClickButton>
-    </div>
+    </motion.div>
   );
 }

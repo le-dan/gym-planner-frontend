@@ -24,34 +24,45 @@ export default function LoginPopUp({
   }, [userList, setShowLogin, username]);
 
   const containerVariants = {
-    hidden: {
-      scale: 0,
-      opacity: 0,
-    },
+    hidden: { opacity: 0 },
     visible: {
-      scale: 1,
       opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 2,
         delay: 0.25,
+        staggerChildren: 1,
+        when: "beforeChildren",
       },
+    },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {},
     },
   };
 
   return showLogin ? (
     // background div
-    <div className="absolute top-0 z-50 flex h-full w-full bg-black">
+    <div className="absolute top-0 z-50 h-full w-full bg-stone-900">
       <motion.div
         variants={containerVariants}
         initial={"hidden"}
         animate={"visible"}
-        className="absolute mt-12 w-full text-center text-8xl font-thin text-slate-200"
+        className="absolute mt-12 w-full text-center font-serif  text-8xl text-white"
       >
-        Gym Planner
+        gym-planner
       </motion.div>
-      <motion.div className="flex h-full w-full flex-col items-center justify-center  gap-4 ">
-        <EnterUserBox setSearch={setUsername} />
-        <CreateUserBox />
+      <motion.div
+        variants={containerVariants}
+        initial={"hidden"}
+        animate={"visible"}
+        className="flex h-full w-full flex-col items-center justify-center  gap-4 "
+      >
+        <EnterUserBox setSearch={setUsername} variant={childVariants} />
+        <CreateUserBox variant={childVariants} />
       </motion.div>
     </div>
   ) : (

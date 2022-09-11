@@ -1,10 +1,17 @@
+import { motion } from "framer-motion";
 import SearchBox from "../SearchBox";
 
-export default function EnterUserBox({ setSearch }: { setSearch: any }) {
+export default function EnterUserBox({
+  setSearch,
+  variant,
+}: {
+  setSearch: any;
+  variant: any;
+}) {
   return (
-    <div className="loginCard h-1/5 w-full max-w-md">
-      <div className="loginText">enter username</div>
+    <motion.div variants={variant} className="loginCard h-1/5 w-full max-w-md">
+      <div className="loginText">enter existing username</div>
       <SearchBox setSearch={setSearch} placeHolder={"enter username"} />
-    </div>
+    </motion.div>
   );
 }
