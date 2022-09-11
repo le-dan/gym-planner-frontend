@@ -11,9 +11,9 @@ export default function SearchBox(props: any) {
       if (e.key === "Enter") {
         props.setSearch(query);
       }
-    }
-    document.addEventListener('keydown', onKeyDown);
-    return () => document.removeEventListener('keydown', onKeyDown);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
   }, [props, query]);
 
   // This is a hook that runs when the component is mounted
@@ -26,11 +26,13 @@ export default function SearchBox(props: any) {
     <div className="relative flex items-center justify-center">
       <input
         type="text"
-        placeholder="enter exercise"
-        className="self-center flex h-10 w-22 placeholder:text-center border-2 border-black rounded-md p-2"
+        placeholder={props.placeholder}
+        className="w-22 flex h-10 self-center rounded-md border-2 border-black p-2 placeholder:text-center"
         onChange={(event) => setQuery(event.target.value)}
       />
-      <ClickButton handleClick={(e: any) => handleClick(e)} />
+      <ClickButton handleClick={handleClick}>
+        <TbHandClick className="text-lg" />
+      </ClickButton>
     </div>
   );
 }

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body,
 #root {
@@ -17,4 +21,14 @@ body,
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+@layer components {
+  .loginCard {
+    @apply relative z-0 flex flex-col rounded-3xl bg-white p-6 shadow-2xl;
+  }
+
+  .loginText {
+    @apply text-center text-xl font-bold text-gray-800;
+  }
 }
