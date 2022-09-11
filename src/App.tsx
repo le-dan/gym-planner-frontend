@@ -20,6 +20,7 @@ interface Exercise {
 export default function App() {
   const [users, setUsers] = useState<User[]>([]);
   const [search, setSearch] = useState("");
+  const [showLogin, setShowLogin] = useState(true);
 
   // use effect for exercise search
   useEffect(() => {
@@ -58,7 +59,11 @@ export default function App() {
 
   return (
     <div className="h-full w-full">
-      <LoginPopUp trigger={false} users={users} />
+      <LoginPopUp
+        showLogin={showLogin}
+        setShowLogin={setShowLogin}
+        userList={users}
+      />
       <div className="flex justify-center">
         <motion.div
           className="absolute z-0 mt-5 flex text-6xl text-red-400"
@@ -68,7 +73,7 @@ export default function App() {
         </motion.div>
       </div>
       <div className="z-0 flex h-full items-center justify-center gap-[10rem]">
-        <SearchBox setSearch={setSearch} placeholder={"enter exercise"} />
+        <SearchBox setSearch={setSearch} placeHolder={"enter exercise"} />
       </div>
       {/* <div className="border-2 border-white m-5">
         {exercises.map(({ id, workout, exercise, repetitions, sets }, i) => (

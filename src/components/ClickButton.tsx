@@ -1,5 +1,3 @@
-import { TbHandClick } from "react-icons/tb";
-
 export default function ClickButton(props: any) {
   return (
     <button
