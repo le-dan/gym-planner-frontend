@@ -48,12 +48,13 @@ export default function LoginPopUp({
     <AnimatePresence>
       {showLogin && (
         <motion.div
+          layout
           exit={{ scale: 0 }}
           transition={{ duration: 0.5 }}
           className="fixed top-0 z-50 h-full w-full bg-stone-900"
         >
           {/*flex container for the title*/}
-          <div className="absolute flex w-full justify-center">
+          <div className="absolute flex w-full select-none justify-center">
             <motion.div
               variants={containerVariants}
               initial={"hidden"}
