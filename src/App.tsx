@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-<<<<<<< HEAD
 import SearchBox from "./components/SearchBox";
-import LoginPopUp from "./components/LoginPopup/LoginPopUp";
-=======
-import LoginPopUp from "./LoginPopup/LoginPopUp";
 import HomePage from "./HomePage/HomePage";
->>>>>>> dev
+import LoginPopUp from "./LoginPopup/LoginPopUp";
 
 interface User {
   username: string;
