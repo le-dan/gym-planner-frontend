@@ -4,7 +4,6 @@ import axios from "axios";
 
 import SearchBox from "./components/SearchBox";
 import LoginPopUp from "./components/LoginPopup/LoginPopUp";
-import { type } from "os";
 
 interface User {
   username: string;
