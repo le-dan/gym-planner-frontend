@@ -1,38 +1,46 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import axios from 'axios';
+import { animate, motion } from "framer-motion";
+import axios from "axios";
 
 import SearchBox from "./components/SearchBox";
-import UserLogin from "./components/UserLogin";
+import LoginPopUp from "./components/LoginPopup/LoginPopUp";
+import { type } from "os";
 
 interface User {
-  username: string,
-  exercises: Exercise[]
+  username: string;
+  exercises: Exercise[];
 }
 
 interface Exercise {
-  workout: string,
-  exercise: string,
-  repetitions: number,
-  sets: number
+  workout: string;
+  exercise: string;
+  repetitions: number;
+  sets: number;
 }
 
 export default function App() {
   const [users, setUsers] = useState<User[]>([]);
   const [search, setSearch] = useState("");
+  const [showLogin, setShowLogin] = useState(true);
+
+  // use effect for exercise search
+  useEffect(() => {
+    console.log(search);
+    console.log(users);
+  }, [search]);
 
   // load user data on initial mount
   useEffect(() => {
     axios.defaults.baseURL = "http://localhost:8080/";
-    axios.get<User[]>('api/users').then(async response => {
-      setUsers(await response.data);
-    }).catch(error => {
-      console.log(error.data);
-    });
+    axios
+      .get<User[]>("api/users")
+      .then(async (response) => {
+        setUsers(await response.data);
+      })
+      .catch((error) => {
+        console.log(error.data);
+      });
   }, []);
-
-  // use state for updating search
-
 
   // // use state for updating list of user exercises
   // const [exerciseData, setExerciseData] = useState([]);
@@ -51,17 +59,30 @@ export default function App() {
   // }, [exerciseData]);
 
   return (
-    <div className="flex flex-col justify-center items-center h-full">
-      <motion.div className="text-6xl" whileHover={{ scale: 1.1 }}>gym-planner</motion.div>
-      <UserLogin />
-      <SearchBox setSearch={setSearch} />
-      <div className="border-2 border-white m-5">
-        {/* {exercises.map(({ id, workout, exercise, repetitions, sets }, i) => (
+    <div className="h-full w-full">
+      <div className="flex justify-center">
+        <motion.div
+          className="absolute -z-10 mt-5 flex text-6xl text-red-400"
+          whileHover={{ scale: 1.1 }}
+        >
+          Gym-Planner
+        </motion.div>
+      </div>
+      <div className="flex h-full items-center justify-center gap-[10rem]">
+        <SearchBox setSearch={setSearch} placeHolder={"enter exercise"} />
+      </div>
+      <LoginPopUp
+        showLogin={showLogin}
+        setShowLogin={setShowLogin}
+        userList={users}
+      />
+      {/* <div className="border-2 border-white m-5">
+        {exercises.map(({ id, workout, exercise, repetitions, sets }, i) => (
           <div key={i}>
             workout: {workout}, exercise: {exercise}
           </div>
-        ))} */}
-      </div>
+        ))}
+      </div> */}
     </div>
   );
 }
