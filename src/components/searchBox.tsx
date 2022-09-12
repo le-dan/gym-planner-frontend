@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { TbHandClick } from "react-icons/tb";
 import ClickButton from "./ClickButton";
@@ -30,12 +31,14 @@ export default function SearchBox({
 
   return (
     <div className="relative z-0 flex items-center justify-center">
-      <input
+      <motion.input
+        whileFocus={{ scale: 1.05 }}
+        initial={{ scale: 1 }}
         type="text"
         placeholder={placeHolder}
         className="w-22 flex h-10 self-center rounded-md border-2 border-black p-2 placeholder:text-center"
         onChange={(event) => setQuery(event.target.value)}
-      />
+      ></motion.input>
       <ClickButton handleClick={handleClick}>
         <TbHandClick className="text-lg" />
       </ClickButton>
