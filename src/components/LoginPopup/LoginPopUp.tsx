@@ -30,7 +30,7 @@ export default function LoginPopUp({
       transition: {
         duration: 2,
         delay: 0.25,
-        staggerChildren: 1,
+        staggerChildren: 0.5,
         when: "beforeChildren",
       },
     },
@@ -47,14 +47,17 @@ export default function LoginPopUp({
   return showLogin ? (
     // background div
     <div className="absolute top-0 z-50 h-full w-full bg-stone-900">
-      <motion.div
-        variants={containerVariants}
-        initial={"hidden"}
-        animate={"visible"}
-        className="absolute mt-12 w-full text-center font-serif  text-8xl text-white"
-      >
-        gym-planner
-      </motion.div>
+      <div className="absolute  w-full text-center">
+        <motion.div
+          variants={containerVariants}
+          initial={"hidden"}
+          animate={"visible"}
+          className="mt-12 w-full text-center font-serif  text-8xl text-white"
+        >
+          gym-planner
+        </motion.div>
+        <div className="w-full text-center text-white">by Dan Le</div>
+      </div>
       <motion.div
         variants={containerVariants}
         initial={"hidden"}
