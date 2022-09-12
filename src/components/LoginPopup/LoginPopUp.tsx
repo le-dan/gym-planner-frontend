@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import CreateUserBox from "./CreateUserBox";
 import EnterUserBox from "./EnterUserBox";
@@ -36,30 +36,36 @@ export default function LoginPopUp({ showLogin, setShowLogin, userList }: { show
     },
   };
 
-  return showLogin ? (
-    // background div
-    <div className="fixed top-0 z-50 h-full w-full bg-stone-900">
-      {/*flex container for the title*/}
-      <div className="absolute flex w-full justify-center">
-        <motion.div variants={containerVariants} initial={"hidden"} animate={"visible"} className="mt-12 text-center font-serif text-8xl text-white">
-          gym-planner
+  return (
+    <AnimatePresence>
+      {showLogin && (
+        <motion.div exit={{ opacity: 0 }} transition={{ duration: 1 }} className="fixed top-0 z-50 h-full w-full bg-stone-900">
+          {/*flex container for the title*/}
+          <div className="absolute flex w-full justify-center">
+            <motion.div
+              variants={containerVariants}
+              initial={"hidden"}
+              animate={"visible"}
+              className="mt-12 text-center font-serif text-8xl text-white"
+            >
+              gym-planner
+            </motion.div>
+            <motion.div variants={containerVariants} initial={"hidden"} animate={"visible"}>
+              <div className="absolute bottom-2 font-serif text-xl text-white">by Dan Le</div>
+            </motion.div>
+          </div>
+          {/* flex container for the login window cards*/}
+          <motion.div
+            variants={containerVariants}
+            initial={"hidden"}
+            animate={"visible"}
+            className="flex h-full w-full flex-col items-center justify-center gap-7"
+          >
+            <EnterUserBox setSearch={setUsername} variant={childVariants} />
+            <CreateUserBox variant={childVariants} />
+          </motion.div>
         </motion.div>
-        <motion.div variants={containerVariants} initial={"hidden"} animate={"visible"}>
-          <div className="absolute bottom-2 font-serif text-xl text-white">by Dan Le</div>
-        </motion.div>
-      </div>
-      {/* flex container for the login window cards*/}
-      <motion.div
-        variants={containerVariants}
-        initial={"hidden"}
-        animate={"visible"}
-        className="flex h-full w-full flex-col items-center justify-center  gap-4 "
-      >
-        <EnterUserBox setSearch={setUsername} variant={childVariants} />
-        <CreateUserBox variant={childVariants} />
-      </motion.div>
-    </div>
-  ) : (
-    <div></div>
+      )}
+    </AnimatePresence>
   );
 }
