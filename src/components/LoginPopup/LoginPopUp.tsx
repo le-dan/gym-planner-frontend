@@ -3,15 +3,7 @@ import { useState, useEffect } from "react";
 import CreateUserBox from "./CreateUserBox";
 import EnterUserBox from "./EnterUserBox";
 
-export default function LoginPopUp({
-  showLogin,
-  setShowLogin,
-  userList,
-}: {
-  showLogin: boolean;
-  setShowLogin: any;
-  userList: any;
-}) {
+export default function LoginPopUp({ showLogin, setShowLogin, userList }: { showLogin: boolean; setShowLogin: any; userList: any }) {
   const [username, setUsername] = useState("");
   useEffect(() => {
     for (let i = 0; i < userList.length; i++) {
@@ -46,18 +38,17 @@ export default function LoginPopUp({
 
   return showLogin ? (
     // background div
-    <div className="absolute top-0 z-50 h-full w-full bg-stone-900">
-      <div className="absolute  w-full text-center">
-        <motion.div
-          variants={containerVariants}
-          initial={"hidden"}
-          animate={"visible"}
-          className="mt-12 w-full text-center font-serif  text-8xl text-white"
-        >
+    <div className="fixed top-0 z-50 h-full w-full bg-stone-900">
+      {/*flex container for the title*/}
+      <div className="absolute flex w-full justify-center">
+        <motion.div variants={containerVariants} initial={"hidden"} animate={"visible"} className="mt-12 text-center font-serif text-8xl text-white">
           gym-planner
         </motion.div>
-        <div className="w-full text-center text-white">by Dan Le</div>
+        <motion.div variants={containerVariants} initial={"hidden"} animate={"visible"}>
+          <div className="absolute bottom-2 font-serif text-xl text-white">by Dan Le</div>
+        </motion.div>
       </div>
+      {/* flex container for the login window cards*/}
       <motion.div
         variants={containerVariants}
         initial={"hidden"}
