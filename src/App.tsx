@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
-import { animate, motion } from "framer-motion";
 import axios from "axios";
 
+<<<<<<< HEAD
 import SearchBox from "./components/SearchBox";
 import LoginPopUp from "./components/LoginPopup/LoginPopUp";
+=======
+import LoginPopUp from "./LoginPopup/LoginPopUp";
+import HomePage from "./HomePage/HomePage";
+>>>>>>> dev
 
 interface User {
   username: string;
@@ -58,26 +62,17 @@ export default function App() {
   // }, [exerciseData]);
 
   return (
+    /*Main Div */
     <div className="h-full w-full">
-      <div className="flex justify-center">
-        <motion.div
-          className="absolute -z-10 mt-5 flex text-6xl text-red-400"
-          whileHover={{ scale: 1.1 }}
-        >
-          Gym-Planner
-        </motion.div>
-      </div>
-      <div className="flex h-full items-center justify-center gap-[10rem]">
-        <SearchBox setSearch={setSearch} placeHolder={"enter exercise"} />
-      </div>
+      {/* Homepage Layout */}
+      <HomePage setSearch={setSearch} />
+
       {/* Login Popup Card*/}
       <LoginPopUp
         showLogin={showLogin}
         setShowLogin={setShowLogin}
         userList={users}
       />
-
-      {/* Homepage with all the workouts */}
     </div>
   );
 }

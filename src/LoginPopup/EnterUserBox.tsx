@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import SearchBox from "../SearchBox";
-
+import SearchBox from "../components/SearchBox";
 export default function EnterUserBox({
   setSearch,
   variant,
@@ -9,7 +8,11 @@ export default function EnterUserBox({
   variant: any;
 }) {
   return (
-    <motion.div whileFocus={{scale:1.1}} variants={variant} className="loginCard w-full max-w-md">
+    <motion.div
+      whileFocus={{ scale: 1.1 }}
+      variants={variant}
+      className="loginCard w-full max-w-md"
+    >
       <div className="loginText">enter existing username</div>
       <SearchBox setSearch={setSearch} placeHolder={"enter username"} />
     </motion.div>
