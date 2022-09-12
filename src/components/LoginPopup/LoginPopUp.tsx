@@ -3,7 +3,15 @@ import { useState, useEffect } from "react";
 import CreateUserBox from "./CreateUserBox";
 import EnterUserBox from "./EnterUserBox";
 
-export default function LoginPopUp({ showLogin, setShowLogin, userList }: { showLogin: boolean; setShowLogin: any; userList: any }) {
+export default function LoginPopUp({
+  showLogin,
+  setShowLogin,
+  userList,
+}: {
+  showLogin: boolean;
+  setShowLogin: any;
+  userList: any;
+}) {
   const [username, setUsername] = useState("");
   useEffect(() => {
     for (let i = 0; i < userList.length; i++) {
@@ -39,9 +47,14 @@ export default function LoginPopUp({ showLogin, setShowLogin, userList }: { show
   return (
     <AnimatePresence>
       {showLogin && (
-        <motion.div exit={{ opacity: 0 }} transition={{ duration: 1 }} className="fixed top-0 z-50 h-full w-full bg-stone-900">
+        <motion.div
+          layout
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.25 }}
+          className="fixed top-0 z-50 h-full w-full bg-stone-900"
+        >
           {/*flex container for the title*/}
-          <div className="absolute flex w-full justify-center">
+          <div className="absolute flex w-full select-none justify-center">
             <motion.div
               variants={containerVariants}
               initial={"hidden"}
@@ -50,8 +63,14 @@ export default function LoginPopUp({ showLogin, setShowLogin, userList }: { show
             >
               gym-planner
             </motion.div>
-            <motion.div variants={containerVariants} initial={"hidden"} animate={"visible"}>
-              <div className="absolute bottom-2 font-serif text-xl text-white">by Dan Le</div>
+            <motion.div
+              variants={containerVariants}
+              initial={"hidden"}
+              animate={"visible"}
+            >
+              <div className="absolute bottom-2 font-serif text-xl italic text-blue-500">
+                Dan Le
+              </div>
             </motion.div>
           </div>
           {/* flex container for the login window cards*/}
