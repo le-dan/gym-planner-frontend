@@ -49,8 +49,8 @@ export default function LoginPopUp({
       {showLogin && (
         <motion.div
           layout
-          exit={{ scale: 0 }}
-          transition={{ duration: 0.5 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.25 }}
           className="fixed top-0 z-50 h-full w-full bg-stone-900"
         >
           {/*flex container for the title*/}

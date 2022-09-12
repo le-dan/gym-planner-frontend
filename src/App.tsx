@@ -71,18 +71,14 @@ export default function App() {
       <div className="flex h-full items-center justify-center gap-[10rem]">
         <SearchBox setSearch={setSearch} placeHolder={"enter exercise"} />
       </div>
+      {/* Login Popup Card*/}
       <LoginPopUp
         showLogin={showLogin}
         setShowLogin={setShowLogin}
         userList={users}
       />
-      {/* <div className="border-2 border-white m-5">
-        {exercises.map(({ id, workout, exercise, repetitions, sets }, i) => (
-          <div key={i}>
-            workout: {workout}, exercise: {exercise}
-          </div>
-        ))}
-      </div> */}
+
+      {/* Homepage with all the workouts */}
     </div>
   );
 }
