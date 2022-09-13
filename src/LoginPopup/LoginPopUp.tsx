@@ -78,7 +78,7 @@ export default function LoginPopUp({
             variants={containerVariants}
             initial={"hidden"}
             animate={"visible"}
-            className="flex h-full w-full flex-col items-center justify-center gap-7"
+            className="flex h-full w-full flex-col items-center justify-center"
           >
             <EnterUserBox setSearch={setUsername} variant={childVariants} />
             <CreateUserBox variant={childVariants} />
