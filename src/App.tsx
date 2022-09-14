@@ -20,7 +20,8 @@ interface Exercise {
 export default function App() {
   const [users, setUsers] = useState<User[]>([]);
   const [search, setSearch] = useState("");
-  const [showLogin, setShowLogin] = useState(true);
+  // sets the login popup
+  const [showLogin, setShowLogin] = useState(false);
 
   // use effect for exercise search
   useEffect(() => {
