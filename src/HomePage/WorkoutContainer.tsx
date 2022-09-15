@@ -1,4 +1,5 @@
-import CreateWorkoutCard from "./CreateWorkoutCard";
+import CreateWorkoutPopUp from "../CreateForm/CreateWorkoutPopUp";
+import AddWorkoutCard from "./AddWorkoutCard";
 import WorkoutCard from "./WorkoutCard";
 
 export default function WorkoutContainer() {
@@ -13,7 +14,8 @@ export default function WorkoutContainer() {
           <WorkoutCard workoutName="push" />
           <WorkoutCard workoutName="pull" />
           <WorkoutCard workoutName="pull" />
-          <CreateWorkoutCard />
+          <AddWorkoutCard />
+          <CreateWorkoutPopUp />
         </div>
       </div>
     </div>
