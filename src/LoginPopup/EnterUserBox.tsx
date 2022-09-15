@@ -11,7 +11,7 @@ export default function EnterUserBox({
     <motion.div
       whileFocus={{ scale: 1.1 }}
       variants={variant}
-      className="loginCard w-full max-w-md"
+      className="loginCard w-full max-w-md gap-3 pb-9"
     >
       <div className="loginText">enter existing username</div>
       <SearchBox setSearch={setSearch} placeHolder={"enter username"} />

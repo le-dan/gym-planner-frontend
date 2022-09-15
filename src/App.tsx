@@ -20,7 +20,7 @@ export default function App() {
   const [users, setUsers] = useState<User[]>([]);
   const [search, setSearch] = useState("");
   // sets the login popup
-  const [showLogin, setShowLogin] = useState(false);
+  const [showLogin, setShowLogin] = useState(true);
 
   // use effect for exercise search
   useEffect(() => {

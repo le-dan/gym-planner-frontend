@@ -1,3 +1,11 @@
+import { motion } from "framer-motion";
+import InputCard from "../components/InputCard";
+
 export default function CreateWorkoutPopUp() {
-  return <div className="fixed top-0 z-50 h-full w-full bg-stone-900"></div>;
+  return (
+    // Background div
+    <motion.div className="fixed top-0 flex h-full w-full items-center justify-center bg-stone-900/70">
+      <InputCard />
+    </motion.div>
+  );
 }

@@ -1,9 +1,11 @@
+import { useState } from "react";
 import CreateWorkoutPopUp from "../CreateForm/CreateWorkoutPopUp";
 import AddWorkoutCard from "./AddWorkoutCard";
 import WorkoutCard from "./WorkoutCard";
 
 export default function WorkoutContainer() {
-  // handle the click in the container
+  // Triggers form popup
+  const [workoutForm, setWorkoutForm] = useState(false);
 
   return (
     // Initial background for workout containers
