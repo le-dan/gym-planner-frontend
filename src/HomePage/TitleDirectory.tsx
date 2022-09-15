@@ -7,7 +7,7 @@ export default function TitleDirectory() {
       <motion.div
         layout
         whileHover={{ scale: 1.05 }}
-        className="rounded-full bg-slate-50 py-4 px-6 shadow-lg"
+        className="rounded-full bg-zinc-50 py-4 px-6 shadow-lg"
       >
         <div className="font-serif text-xl font-bold">
           chaeyoung/gym-planner
