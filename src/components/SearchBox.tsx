@@ -22,17 +22,15 @@ export default function SearchBox({
   }, [setSearch, query]);
 
   return (
-    <div className="h-full w-full">
-      <div className="z-0 flex items-center justify-center">
-        <motion.input
-          whileFocus={{ scale: 1.025 }}
-          initial={{ scale: 1 }}
-          type="text"
-          placeholder={placeHolder}
-          className="flex h-10 w-[60%] self-center rounded-md border-2 border-black p-2 placeholder:text-center"
-          onChange={(event) => setQuery(event.target.value)}
-        ></motion.input>
-      </div>
+    <div className="z-0 flex items-center justify-center">
+      <motion.input
+        whileFocus={{ scale: 1.025 }}
+        initial={{ scale: 1 }}
+        type="text"
+        placeholder={placeHolder}
+        className="flex h-10 w-2/3 select-none self-center rounded-md border-2 border-black p-2 placeholder:text-center"
+        onChange={(event) => setQuery(event.target.value)}
+      ></motion.input>
     </div>
   );
 }
