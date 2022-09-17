@@ -5,12 +5,18 @@ import TitleDirectory from "./TitleDirectory";
 import WorkoutContainer from "./WorkoutContainer";
 import WorkoutPage from "./WorkoutPage/WorkoutPage";
 
-export default function HomePage({ setSearch }: { setSearch: any }) {
+export default function HomePage({
+  setSearch,
+  user,
+}: {
+  setSearch: any;
+  user: any;
+}) {
   return (
     <div className="fixed h-full w-full bg-white">
       <TitleDirectory />
       {/* Space divider for workout grid */}
-      <WorkoutPage />
+      <WorkoutPage user={user} />
     </div>
   );
 }
