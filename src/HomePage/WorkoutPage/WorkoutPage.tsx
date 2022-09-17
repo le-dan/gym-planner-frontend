@@ -10,13 +10,17 @@ export default function WorkoutPage() {
   const [newWorkout, setNewWorkout] = useState("");
 
   useEffect(() => {
-    console.log("new workout set: " + newWorkout);
-    setWorkoutPopUp(false);
+    if (newWorkout !== "") {
+      setWorkoutPopUp(false);
+    }
   }, [newWorkout]);
 
   return (
     <>
-      <WorkoutContainer setWorkoutPopUp={setWorkoutPopUp} />
+      <WorkoutContainer
+        setWorkoutPopUp={setWorkoutPopUp}
+        newWorkout={newWorkout}
+      />
       {workoutPopUp && (
         <PopUp
           content={<InputCard setNewWorkout={setNewWorkout} />}

@@ -22,12 +22,6 @@ export default function App() {
   // sets the login popup
   const [showLogin, setShowLogin] = useState(false);
 
-  // use effect for exercise search
-  useEffect(() => {
-    console.log(search);
-    console.log(users);
-  }, [search]);
-
   // load user data on initial mount
   useEffect(() => {
     axios.defaults.baseURL = "http://localhost:8080/";

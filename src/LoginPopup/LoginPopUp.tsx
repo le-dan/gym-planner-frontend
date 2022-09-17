@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import CreateUserBox from "./CreateUserBox";
 import EnterUserBox from "./EnterUserBox";
 
@@ -13,14 +13,17 @@ export default function LoginPopUp({
   userList: any;
 }) {
   const [username, setUsername] = useState("");
+  const didMount = useRef(false);
   useEffect(() => {
-    for (let i = 0; i < userList.length; i++) {
-      if (userList[i].username === username) {
-        setShowLogin(false);
-        break;
+    if (username != "") {
+      for (let i = 0; i < userList.length; i++) {
+        if (userList[i].username === username) {
+          setShowLogin(false);
+          break;
+        }
       }
+      console.log(username);
     }
-    console.log(username);
   }, [userList, setShowLogin, username]);
 
   const containerVariants = {
