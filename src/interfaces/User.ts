@@ -1,6 +1,6 @@
-import Exercise from "./Exercise";
+import Workout from "./Workout";
 
 export default interface User {
   username: string;
-  exercises: Exercise[];
+  workouts: Workout[];
 }

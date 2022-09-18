@@ -11,8 +11,17 @@ export default function App() {
 
   // Entered username after logging in
   const [enteredUser, setEnteredUser] = useState("");
+
+  // Loaded user
+  const [user, setUser] = useState<User>();
+
   // sets the login popup
   const [showLogin, setShowLogin] = useState(true);
+
+  // load user workouts based on username entered
+  // useEffect(() => {
+  //   axios.get<Exercise[]>(`api/users/{enterdUser}/we`)
+  // });
 
   // load user data on initial mount
   useEffect(() => {
@@ -27,30 +36,19 @@ export default function App() {
       });
   }, []);
 
-  // // use state for updating list of user exercises
-  // const [exerciseData, setExerciseData] = useState([]);
-  // // If search changes, then fetch data from updated search and update user data
-  // useEffect(() => {
-  //   if (search !== "") {
-  //     fetchExercises(search).then((response) => {
-  //       setExerciseData(response.data);
-  //     });
-  //   }
-  // }, [search]);
-
-  // // prints out exercise data after changing
-  // useEffect(() => {
-  //   console.log(exerciseData);
-  // }, [exerciseData]);
+  // load entered user data based on search
+  useEffect(() => {
+    if (!showLogin) {
+      setUser(users.find((user) => user.username === enteredUser));
+      console.log("users: " + JSON.stringify(users, undefined, 4));
+    }
+  }, [showLogin, users]);
 
   return (
     /*Main Div */
     <div className="h-full w-full">
       {/* Homepage Layout */}
-      <HomePage
-        setSearch={undefined}
-        user={users.find((user) => user.username === enteredUser)}
-      />
+      <HomePage setSearch={undefined} user={user as User} />
 
       {/* Login Popup Card*/}
       <LoginPopUp

@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import User from "../interfaces/User";
+import Workout from "../interfaces/Workout";
 import AddWorkoutCard from "./AddWorkoutCard";
 import WorkoutCard from "./WorkoutCard";
 
@@ -9,14 +10,15 @@ export default function WorkoutContainer({
   user,
 }: {
   setWorkoutPopUp: any;
-  newWorkout: string;
-  user: any;
+  newWorkout: Workout;
+  user: User;
 }) {
   // List of workouts
-  const [listWorkouts, setListWorkouts] = useState<User.workout[]>([]);
+  //user?.workouts
+  const [listWorkouts, setListWorkouts] = useState<Workout[]>(user?.workouts);
 
   useEffect(() => {
-    if (newWorkout !== "") {
+    if (newWorkout?.workoutName !== "") {
       setListWorkouts((listWorkouts) => [...listWorkouts, newWorkout]);
       console.log("workout added");
     }
@@ -29,9 +31,9 @@ export default function WorkoutContainer({
       <div className="absolute bottom-0 flex h-[95%] w-[95%] items-center justify-center rounded-t-3xl bg-slate-100 shadow-2xl">
         <div className="absolute z-10 grid h-[90%] w-[98%] grid-cols-4 grid-rows-2 items-center justify-items-center gap-y-5 ">
           <>
-            {listWorkouts.length > 1
-              ? listWorkouts.map((workoutName, index) => (
-                  <WorkoutCard workoutName={workoutName} key={index} />
+            {listWorkouts?.length! > 1
+              ? listWorkouts!.map((workout, index) => (
+                  <WorkoutCard workoutName={workout.workoutName} key={index} />
                 ))
               : null}
           </>

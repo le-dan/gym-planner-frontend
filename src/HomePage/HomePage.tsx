@@ -1,8 +1,5 @@
-import { useState, useEffect } from "react";
-import InputCard from "../components/InputCard";
-import PopUp from "../components/PopUp";
+import User from "../interfaces/User";
 import TitleDirectory from "./TitleDirectory";
-import WorkoutContainer from "./WorkoutContainer";
 import WorkoutPage from "./WorkoutPage/WorkoutPage";
 
 export default function HomePage({
@@ -10,7 +7,7 @@ export default function HomePage({
   user,
 }: {
   setSearch: any;
-  user: any;
+  user: User;
 }) {
   return (
     <div className="fixed h-full w-full bg-white">

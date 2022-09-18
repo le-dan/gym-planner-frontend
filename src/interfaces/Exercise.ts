@@ -1,6 +1,5 @@
 export default interface Exercise {
-  workout: string;
-  exercise: string;
+  exerciseName: string;
   repetitions: number;
   sets: number;
 }
