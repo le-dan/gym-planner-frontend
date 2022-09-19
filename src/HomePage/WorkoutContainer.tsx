@@ -14,7 +14,7 @@ export default function WorkoutContainer({
   user: User;
 }) {
   // List of workouts
-  //user?.workouts
+  //fix user?.workouts to not be undefined TODO: fix this
   const [listWorkouts, setListWorkouts] = useState<Workout[]>(
     user?.workouts || []
   );
