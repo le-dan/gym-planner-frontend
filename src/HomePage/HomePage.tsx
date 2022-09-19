@@ -1,25 +1,19 @@
-import { useState, useEffect } from "react";
-import InputCard from "../components/InputCard";
-import PopUp from "../components/PopUp";
+import User from "../interfaces/User";
 import TitleDirectory from "./TitleDirectory";
-import WorkoutContainer from "./WorkoutContainer";
+import WorkoutPage from "./WorkoutPage/WorkoutPage";
 
-export default function HomePage({ setSearch }: { setSearch: any }) {
-  // Triggers form popup
-  const [workoutPopUp, setWorkoutPopUp] = useState(false);
-
-  useEffect(() => {
-    console.log(workoutPopUp);
-  }, [workoutPopUp]);
-
+export default function HomePage({
+  setSearch,
+  user,
+}: {
+  setSearch: any;
+  user: User;
+}) {
   return (
     <div className="fixed h-full w-full bg-white">
       <TitleDirectory />
       {/* Space divider for workout grid */}
-      <WorkoutContainer setWorkoutPopUp={setWorkoutPopUp} />
-      {workoutPopUp && (
-        <PopUp content={<InputCard />} handleClose={setWorkoutPopUp} />
-      )}
+      <WorkoutPage user={user} />
     </div>
   );
 }

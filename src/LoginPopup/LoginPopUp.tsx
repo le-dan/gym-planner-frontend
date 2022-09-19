@@ -1,27 +1,32 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import CreateUserBox from "./CreateUserBox";
 import EnterUserBox from "./EnterUserBox";
 
 export default function LoginPopUp({
   showLogin,
   setShowLogin,
+  setEnteredUser,
+  enteredUser,
   userList,
 }: {
   showLogin: boolean;
   setShowLogin: any;
+  setEnteredUser: any;
+  enteredUser: string;
   userList: any;
 }) {
-  const [username, setUsername] = useState("");
   useEffect(() => {
-    for (let i = 0; i < userList.length; i++) {
-      if (userList[i].username === username) {
-        setShowLogin(false);
-        break;
+    if (enteredUser !== "") {
+      for (let i = 0; i < userList.length; i++) {
+        if (userList[i].username === enteredUser) {
+          setShowLogin(false);
+          break;
+        }
       }
+      console.log(enteredUser);
     }
-    console.log(username);
-  }, [userList, setShowLogin, username]);
+  }, [userList, setShowLogin, enteredUser]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -80,7 +85,7 @@ export default function LoginPopUp({
             animate={"visible"}
             className="flex h-full w-full flex-col items-center justify-center"
           >
-            <EnterUserBox setSearch={setUsername} variant={childVariants} />
+            <EnterUserBox setSearch={setEnteredUser} variant={childVariants} />
             <CreateUserBox variant={childVariants} />
           </motion.div>
         </motion.div>
