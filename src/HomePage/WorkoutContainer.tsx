@@ -15,11 +15,13 @@ export default function WorkoutContainer({
 }) {
   // List of workouts
   //user?.workouts
-  const [listWorkouts, setListWorkouts] = useState<Workout[]>(user?.workouts);
+  const [listWorkouts, setListWorkouts] = useState<Workout[]>(
+    user?.workouts || []
+  );
 
   useEffect(() => {
     if (newWorkout?.workoutName !== "") {
-      setListWorkouts((listWorkouts) => [...listWorkouts, newWorkout]);
+      setListWorkouts((prevListWorkouts) => [...prevListWorkouts, newWorkout]);
       console.log("workout added");
     }
   }, [newWorkout]);
@@ -31,7 +33,7 @@ export default function WorkoutContainer({
       <div className="absolute bottom-0 flex h-[95%] w-[95%] items-center justify-center rounded-t-3xl bg-slate-100 shadow-2xl">
         <div className="absolute z-10 grid h-[90%] w-[98%] grid-cols-4 grid-rows-2 items-center justify-items-center gap-y-5 ">
           <>
-            {listWorkouts?.length! > 1
+            {listWorkouts?.length! > 0
               ? listWorkouts!.map((workout, index) => (
                   <WorkoutCard workoutName={workout.workoutName} key={index} />
                 ))
