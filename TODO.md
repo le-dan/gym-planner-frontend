@@ -1,7 +1,6 @@
 
 
-- make new component for adding workout
-  - make post update
+** make post to add new workout to database
 
 - learn how to parse data
 

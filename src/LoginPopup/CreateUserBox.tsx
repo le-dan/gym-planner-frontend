@@ -7,7 +7,7 @@ export default function CreateUserBox({ variant }: { variant: any }) {
       variants={variant}
       className="loginCard absolute bottom-[20%] flex items-center gap-3"
     >
-      <div className="loginText">create new user</div>
+      <div className="loginText select-none">create new user</div>
       <ClickButton onClick={[]}>
         <HiOutlinePlus className="text-lg" />
       </ClickButton>

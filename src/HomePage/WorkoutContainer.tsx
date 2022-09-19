@@ -15,16 +15,29 @@ export default function WorkoutContainer({
 }) {
   // List of workouts
   //fix user?.workouts to not be undefined TODO: fix this
-  const [listWorkouts, setListWorkouts] = useState<Workout[]>(
-    user?.workouts || []
-  );
+  const [listWorkouts, setListWorkouts] = useState<Workout[]>([]);
 
+  // Setting list of workouts from user
+  useEffect(() => {
+    if (user?.workouts) {
+      setListWorkouts(user.workouts);
+    }
+  }, [user]);
+
+  // Adding new workout to list
   useEffect(() => {
     if (newWorkout?.workoutName !== "") {
       setListWorkouts((prevListWorkouts) => [...prevListWorkouts, newWorkout]);
       console.log("workout added");
     }
   }, [newWorkout]);
+
+  // Printing out workouts after adding new workout
+  useEffect(() => {
+    if (newWorkout.workoutName !== "") {
+      console.log(listWorkouts);
+    }
+  }, [listWorkouts, newWorkout]);
 
   return (
     // Initial background for workout containers
