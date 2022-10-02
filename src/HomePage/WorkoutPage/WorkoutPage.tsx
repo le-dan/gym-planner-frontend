@@ -1,9 +1,10 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import InputCard from "../../components/InputCard";
 import PopUp from "../../components/PopUp";
 import User from "../../interfaces/User";
 import Workout from "../../interfaces/Workout";
-import WorkoutContainer from "../WorkoutContainer";
+import WorkoutContainer from "./WorkoutContainer";
 
 export default function WorkoutPage({ user }: { user: User }) {
   // Triggers form popup
@@ -17,10 +18,14 @@ export default function WorkoutPage({ user }: { user: User }) {
     exercises: [],
   });
 
+  // Adds new workout
   useEffect(() => {
+    // Only trigger if new workout input is not blank.
     if (newWorkoutName !== "") {
+      // Removes workout popup.
       setWorkoutPopUp(false);
 
+      // New workout object from given name argument.
       const createNewWorkout = (newWorkoutName: string): Workout => {
         const workout: Workout = {
           workoutName: newWorkoutName,
@@ -28,9 +33,25 @@ export default function WorkoutPage({ user }: { user: User }) {
         };
         return workout;
       };
-      setNewWorkout(createNewWorkout(newWorkoutName));
+
+      // Sets the new workout
+      const newWorkout = createNewWorkout(newWorkoutName);
+      setNewWorkout(newWorkout);
+
+      // Do axios post request to add new workout to user
+      axios
+        .post(`/api/users/${user.username}/addWorkout`, {
+          workoutName: newWorkoutName,
+          exercises: [],
+        })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
-  }, [newWorkoutName]);
+  }, [newWorkoutName, user]);
 
   return (
     <>

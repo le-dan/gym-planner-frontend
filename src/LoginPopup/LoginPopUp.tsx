@@ -55,8 +55,8 @@ export default function LoginPopUp({
         <motion.div
           layout
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
-          className="fixed top-0 z-50 h-full w-full bg-stone-900"
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="fixed z-50 h-full w-full bg-stone-900"
         >
           {/*flex container for the title*/}
           <div className="absolute flex w-full select-none justify-center">
