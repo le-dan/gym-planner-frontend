@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 
 export default function AddWorkoutCard({ setTrigger }: { setTrigger: any }) {
   return (
+    // Outer part of card
     <motion.div
-      whileHover={{ scale: 1.05 }}
-      className="workoutCardOuter flex h-[55%] w-[45%] items-center justify-center rounded-3xl shadow-xl"
+      whileHover={{ scale: 1.1 }}
+      className="workoutCardOuter flex h-[45%] w-[45%] items-center justify-center rounded-3xl shadow-xl"
     >
       <motion.div
         onClick={() => setTrigger(true)}

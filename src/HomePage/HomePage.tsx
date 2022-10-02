@@ -10,7 +10,7 @@ export default function HomePage({
   user: User;
 }) {
   return (
-    <div className="fixed h-full w-full bg-neutral-800">
+    <div className="fixed h-full w-full bg-stone-900">
       <TitleDirectory />
       {/* Space divider for workout grid */}
       <WorkoutPage user={user} />
