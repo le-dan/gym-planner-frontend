@@ -35,4 +35,12 @@ code {
   .borderColor {
     @apply border-black;
   }
+
+  .workoutCardOuter {
+    @apply bg-zinc-100;
+  }
+
+  .workoutCardInner {
+    @apply bg-zinc-50;
+  }
 }
