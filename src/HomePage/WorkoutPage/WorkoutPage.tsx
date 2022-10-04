@@ -4,13 +4,20 @@ import InputCard from "../../components/InputCard";
 import PopUp from "../../components/PopUp";
 import User from "../../interfaces/User";
 import Workout from "../../interfaces/Workout";
+import ExerciseListCard from "./ExercisesPopUp/ExerciseListCard";
 import WorkoutContainer from "./WorkoutContainer";
 
 export default function WorkoutPage({ user }: { user: User }) {
   // Triggers form popup
   const [workoutPopUp, setWorkoutPopUp] = useState(false);
+
   // Return new workout name from search
   const [newWorkoutName, setNewWorkoutName] = useState("");
+
+  // Clicked workout card name
+  const [clickedWorkout, setClickedWorkout] = useState<Workout>();
+  // Set exercise list popup
+  const [exercisePopUp, setExercisePopUp] = useState(false);
 
   // New workout made from returned search
   const [newWorkout, setNewWorkout] = useState<Workout>({
@@ -60,12 +67,21 @@ export default function WorkoutPage({ user }: { user: User }) {
         user={user}
         setWorkoutPopUp={setWorkoutPopUp}
         newWorkout={newWorkout}
+        setClickedWorkout={setClickedWorkout}
+        setExercisePopUp={setExercisePopUp}
       />
       {/* New Workout Popup */}
       {workoutPopUp && (
         <PopUp
           content={<InputCard setNewWorkoutName={setNewWorkoutName} />}
           handleClose={setWorkoutPopUp}
+        />
+      )}
+      {/* Exercise Popup */}
+      {exercisePopUp && (
+        <PopUp
+          content={<ExerciseListCard Workout={clickedWorkout!} />}
+          handleClose={setExercisePopUp}
         />
       )}
     </>

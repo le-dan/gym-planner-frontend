@@ -1,5 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
-import { useLongPress } from "use-long-press";
+import { useEffect, useState } from "react";
 
 import User from "../../interfaces/User";
 import Workout from "../../interfaces/Workout";
@@ -7,10 +6,14 @@ import AddWorkoutCard from "./AddWorkoutCard";
 import WorkoutCard from "./WorkoutCard";
 
 export default function WorkoutContainer({
+  setClickedWorkout,
+  setExercisePopUp,
   setWorkoutPopUp,
   newWorkout,
   user,
 }: {
+  setClickedWorkout: any;
+  setExercisePopUp: any;
   setWorkoutPopUp: any;
   newWorkout: Workout;
   user: User;
@@ -40,16 +43,6 @@ export default function WorkoutContainer({
     }
   }, [listWorkouts, newWorkout]);
 
-  // **WIP**
-  const [enabled, setEnabled] = useState(false);
-  const triggerDelete = useCallback(() => {
-    alert("Long pressed!");
-  }, []);
-  // Handle long press
-  const handleLongPress = useLongPress(enabled ? triggerDelete : null, {
-    onStart: (event) => console.log("Press started"),
-  });
-
   return (
     // Initial invisible separation background for workout containers
     <div className="absolute bottom-0 z-10 flex h-[88%] w-full items-center justify-center">
@@ -59,7 +52,13 @@ export default function WorkoutContainer({
           <>
             {listWorkouts?.length! > 0
               ? listWorkouts!.map((workout, index) => (
-                  <WorkoutCard workoutName={workout.workoutName} key={index} />
+                  <WorkoutCard
+                    workoutName={workout.workoutName}
+                    key={index}
+                    setClickedWorkout={setClickedWorkout}
+                    setExercisePopUp={setExercisePopUp}
+                    username={user.username}
+                  />
                 ))
               : null}
           </>
