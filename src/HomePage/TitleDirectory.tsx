@@ -10,7 +10,7 @@ export default function TitleDirectory() {
         className="rounded-full bg-stone-600 py-4 px-6 shadow-lg"
       >
         <div className="select-none font-serif text-xl font-bold text-white">
-          chaeyoung/gym-planner
+          user/gym-planner
         </div>
       </motion.div>
     </div>

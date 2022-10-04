@@ -1,5 +1,4 @@
 import { AnimatePresence, motion } from "framer-motion";
-import InputCard from "./InputCard";
 
 export default function PopUp({
   content,

@@ -1,7 +1,7 @@
 ** make ability to remove workout 
 
-
-** make post to add new workout to database
+** onClick on workout card, trigger exercise list popup
+    - have a useEffect that checks if popup changes, then fetch the workout from the card
 
 
 
@@ -17,3 +17,14 @@ bg-zinc-100
 
 background workout container card:
 bg-slate-100
+
+  For deleting workout cards  
+  // // **WIP**
+  // const [enabled, setEnabled] = useState(false);
+  // const triggerDelete = useCallback(() => {
+  //   alert("Long pressed!");
+  // }, []);
+  // // Handle long press
+  // const handleLongPress = useLongPress(enabled ? triggerDelete : null, {
+  //   onStart: (event) => console.log("Press started"),
+  // });

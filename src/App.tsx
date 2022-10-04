@@ -38,17 +38,17 @@ export default function App() {
 
   // load entered user data based on search
   useEffect(() => {
-    if (!showLogin) {
+    if (!showLogin && enteredUser !== "") {
       setUser(users.find((user) => user.username === enteredUser));
       console.log("users: " + JSON.stringify(users, undefined, 4));
     }
-  }, [showLogin, users]);
+  }, [showLogin, users, enteredUser]);
 
   return (
     /*Main Div */
     <div className="h-full w-full">
       {/* Homepage Layout */}
-      <HomePage setSearch={undefined} user={user as User} />
+      <HomePage user={user as User} />
 
       {/* Login Popup Card*/}
       <LoginPopUp
