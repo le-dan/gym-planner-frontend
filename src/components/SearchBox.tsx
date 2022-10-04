@@ -24,6 +24,7 @@ export default function SearchBox({
   return (
     <div className="z-0 flex items-center justify-center">
       <motion.input
+        autoFocus
         whileFocus={{ scale: 1.025 }}
         initial={{ scale: 1 }}
         type="text"

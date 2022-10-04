@@ -5,7 +5,7 @@ export default function AddExerciseCard({ setTrigger }: { setTrigger: any }) {
     <motion.div
       whileHover={{ scale: 1.05 }}
       onClick={() => setTrigger(true)}
-      className="flex h-[10%] w-[25%] items-center justify-center rounded-3xl border-[1.5px]"
+      className="flex w-[20%] items-center justify-center rounded-3xl border-[1px] border-black"
     >
       <div className="select-none text-xl">+</div>
     </motion.div>

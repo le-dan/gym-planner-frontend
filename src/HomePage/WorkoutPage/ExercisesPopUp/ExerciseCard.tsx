@@ -1,11 +1,21 @@
+import { motion } from "framer-motion";
+
 export default function ExerciseCard({
   ExerciseName,
 }: {
   ExerciseName: string;
 }) {
   return (
-    <div className="flex h-[10%] w-[85%] items-center justify-center rounded-3xl border-[1.5px]">
+    <motion.div
+      whileHover={{
+        height: "5rem",
+        transition: { duration: 0.25 },
+      }}
+      className={
+        "flex w-[65%] justify-center rounded-3xl border-[1px] border-black"
+      }
+    >
       <div className="select-none">{ExerciseName}</div>
-    </div>
+    </motion.div>
   );
 }
