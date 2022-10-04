@@ -5,7 +5,7 @@ import WorkoutPage from "./WorkoutPage/WorkoutPage";
 export default function HomePage({ user }: { user: User }) {
   return (
     <div className="fixed h-full w-full bg-stone-900">
-      <TitleDirectory />
+      <TitleDirectory username={user?.username} />
       {/* Space divider for workout grid */}
       <WorkoutPage user={user} />
     </div>
