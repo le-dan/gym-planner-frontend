@@ -12,7 +12,7 @@ export default function ExerciseCard({
         transition: { duration: 0.25 },
       }}
       className={
-        "flex w-[65%] justify-center rounded-3xl border-[1px] border-black"
+        "flex w-[80%] justify-center rounded-3xl border-[1px] border-black"
       }
     >
       <div className="select-none">{ExerciseName}</div>
