@@ -27,7 +27,7 @@ export default function WorkoutCard({
 
   return (
     // Workout Card Container
-    <div className="workoutCardOuter flex h-[70%] w-[75%] items-center justify-center rounded-3xl shadow-xl">
+    <div className="workoutCardOuter z-50 flex h-[70%] w-[75%] items-center justify-center rounded-3xl shadow-xl">
       <motion.div
         whileHover={{ scale: 1.05 }}
         className="workoutCardInner flex h-[80%] w-[75%] cursor-pointer items-center justify-center rounded-3xl shadow-xl"
