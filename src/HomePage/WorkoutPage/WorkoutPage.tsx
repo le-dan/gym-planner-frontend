@@ -11,14 +11,14 @@ export default function WorkoutPage({ user }: { user: User }) {
   // Triggers form popup
   const [workoutPopUp, setWorkoutPopUp] = useState(false);
 
-  // Return new workout name from search
-  const [newWorkoutName, setNewWorkoutName] = useState("");
-
   // Clicked workout card name
   const [clickedWorkout, setClickedWorkout] = useState<Workout>();
+
   // Set exercise list popup
   const [exercisePopUp, setExercisePopUp] = useState(false);
 
+  // Return new workout name from search
+  const [newWorkoutName, setNewWorkoutName] = useState("");
   // New workout made from returned search
   const [newWorkout, setNewWorkout] = useState<Workout>({
     workoutName: "",
@@ -62,14 +62,6 @@ export default function WorkoutPage({ user }: { user: User }) {
 
   return (
     <>
-      {/* Container full of workouts */}
-      <WorkoutContainer
-        user={user}
-        setWorkoutPopUp={setWorkoutPopUp}
-        newWorkout={newWorkout}
-        setClickedWorkout={setClickedWorkout}
-        setExercisePopUp={setExercisePopUp}
-      />
       {/* New Workout Popup */}
       {workoutPopUp && (
         <PopUp
@@ -84,6 +76,14 @@ export default function WorkoutPage({ user }: { user: User }) {
           handleClose={setExercisePopUp}
         />
       )}
+      {/* Container full of workouts */}
+      <WorkoutContainer
+        user={user}
+        setWorkoutPopUp={setWorkoutPopUp}
+        newWorkout={newWorkout}
+        setClickedWorkout={setClickedWorkout}
+        setExercisePopUp={setExercisePopUp}
+      />
     </>
   );
 }

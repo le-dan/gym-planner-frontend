@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { Axios } from "axios";
+import { useState } from "react";
 import Workout from "../../../interfaces/Workout";
 import AddExerciseCard from "./AddExerciseCard";
 import ExerciseCard from "./ExerciseCard";
