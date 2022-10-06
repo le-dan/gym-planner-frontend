@@ -16,10 +16,6 @@ export default function AddExerciseCard({
       }}
       initial={"closed"}
       animate={trigger ? "open" : "closed"}
-      whileHover={{
-        scale: trigger ? 1 : 1.1,
-        transition: { duration: 0.1, ease: "circInOut" },
-      }}
       transition={{
         height: { duration: 0.3, delay: trigger ? 0.2 : 0 },
         width: { duration: 0.3, delay: trigger ? 0 : 0.2 },
