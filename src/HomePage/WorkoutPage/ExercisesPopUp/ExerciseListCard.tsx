@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Axios } from "axios";
 import Workout from "../../../interfaces/Workout";
 import AddExerciseCard from "./AddExerciseCard";
 import ExerciseCard from "./ExerciseCard";
@@ -8,6 +10,16 @@ export default function ExerciseListCard({ Workout }: { Workout: Workout }) {
   const exerciseList = Workout?.exercises?.map((exercise, index) => (
     <ExerciseCard key={index} ExerciseName={exercise.exerciseName} />
   ));
+
+  // Trigger for add exercise card
+  const [triggerNewExercise, setTriggerNewExercise] = useState(false);
+
+  // // Use effect for trigger
+  // useEffect(() => {
+  //   if (triggerNewExercise) {
+  //     setTriggerNewExercise(false);
+  //   }
+  // }, [triggerNewExercise]);
 
   // Create a new exercise card
   return (
@@ -22,7 +34,10 @@ export default function ExerciseListCard({ Workout }: { Workout: Workout }) {
       <div className="flex h-[80%] w-[80%] flex-col items-center justify-start gap-2 rounded-3xl bg-zinc-50 p-6 shadow-2xl">
         {exerciseList}
         {/* Add Exercise Card */}
-        <AddExerciseCard setTrigger={undefined} />
+        <AddExerciseCard
+          setTrigger={setTriggerNewExercise}
+          trigger={triggerNewExercise}
+        />
       </div>
     </motion.div>
   );
