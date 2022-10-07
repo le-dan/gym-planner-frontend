@@ -29,7 +29,7 @@ export default function AddExerciseCard({
       variants={{
         open: {
           height: 70,
-          width: "60%",
+          width: "95%",
         },
         closed: {
           height: 30,

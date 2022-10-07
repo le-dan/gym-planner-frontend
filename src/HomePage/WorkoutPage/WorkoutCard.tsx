@@ -33,9 +33,7 @@ export default function WorkoutCard({
         className="workoutCardInner flex h-[80%] w-[75%] cursor-pointer items-center justify-center rounded-3xl shadow-xl"
         onClick={() => handleClick()}
       >
-        <div className="select-none text-3xl font-extralight">
-          {workoutName}
-        </div>
+        <div className="select-none text-3xl">{workoutName}</div>
         <div></div>
       </motion.div>
     </div>
