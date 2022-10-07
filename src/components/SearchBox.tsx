@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 export default function SearchBox({
   setSearch,
   placeHolder,
+  heightWidth,
 }: {
   setSearch: any;
   placeHolder: string;
+  heightWidth: string;
 }) {
   const [query, setQuery] = useState("");
 
@@ -22,14 +24,14 @@ export default function SearchBox({
   }, [setSearch, query]);
 
   return (
-    <div className="z-0 flex items-center justify-center">
+    <div className="flex items-center justify-center">
       <motion.input
         autoFocus
         whileFocus={{ scale: 1.025 }}
         initial={{ scale: 1 }}
         type="text"
         placeholder={placeHolder}
-        className="flex h-10 w-2/3 select-none self-center rounded-md border-2 border-black p-2 placeholder:text-center"
+        className={`searchBox flex ${heightWidth}`}
         onChange={(event) => setQuery(event.target.value)}
       ></motion.input>
     </div>

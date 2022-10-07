@@ -43,4 +43,8 @@ code {
   .workoutCardInner {
     @apply bg-zinc-50;
   }
+
+  .searchBox {
+    @apply select-none self-center rounded-md border-2 border-black p-2 placeholder:text-center;
+  }
 }
