@@ -30,11 +30,11 @@ export default function ExerciseListCard({ Workout }: { Workout: Workout }) {
         </div>
       </div>
       {/* Exercise List Container */}
-      <div className="flex h-[80%] w-[80%] flex-col content-start justify-start gap-2 rounded-3xl bg-zinc-50 p-6 shadow-2xl">
+      <div className="flex h-[80%] w-[100%] flex-col content-start justify-start gap-2 rounded-3xl bg-zinc-50 p-6 shadow-2xl">
         {/* Exercise List */}
         {exerciseList}
         {/* Add Exercise Card */}
-        <div className="flex h-[2em] w-1/2 justify-center">
+        <div className="flex h-[2em] w-1/3 justify-center">
           <AddExerciseCard
             setTrigger={setTriggerNewExercise}
             trigger={triggerNewExercise}

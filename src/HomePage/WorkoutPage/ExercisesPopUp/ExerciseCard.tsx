@@ -13,7 +13,7 @@ export default function ExerciseCard({
         transition: { duration: 0.25 },
       }}
       className={
-        "flex h-[2em] w-1/2 justify-center rounded-3xl border-[1px] border-black"
+        "flex h-[2em] w-1/3 justify-center rounded-3xl border-[1px] border-black"
       }
     >
       {/*Container for Text */}
