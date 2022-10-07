@@ -14,7 +14,11 @@ export default function EnterUserBox({
       className="loginCard w-full max-w-md gap-3 pb-9"
     >
       <div className="loginText select-none">enter existing username</div>
-      <SearchBox setSearch={setSearch} placeHolder={"enter username"} />
+      <SearchBox
+        setSearch={setSearch}
+        placeHolder={"enter username"}
+        heightWidth={"h-10 w-2/3"}
+      />
     </motion.div>
   );
 }
