@@ -13,11 +13,12 @@ export default function ExerciseCard({
         transition: { duration: 0.25 },
       }}
       className={
-        "flex h-[2em] w-[80%] justify-center rounded-3xl border-[1px] border-black"
+        "flex h-[2em] w-1/2 justify-center rounded-3xl border-[1px] border-black"
       }
     >
+      {/*Container for Text */}
       <div className="flex h-[2em] w-full items-center justify-center">
-        <div className="select-none">{ExerciseName}</div>
+        <div className="select-none font-medium">{ExerciseName}</div>
       </div>
     </motion.div>
   );
