@@ -1,25 +1,26 @@
 import { motion } from "framer-motion";
+import Exercise from "../../../interfaces/Exercise";
 
-export default function ExerciseCard({
-  ExerciseName,
-}: {
-  ExerciseName: string;
-}) {
-  return (
-    <motion.div
-      layout
-      whileHover={{
-        height: "5rem",
-        transition: { duration: 0.25 },
-      }}
-      className={
-        "flex h-[2em] w-1/3 justify-center rounded-3xl border-[1px] border-black"
-      }
-    >
-      {/*Container for Text */}
-      <div className="flex h-[2em] w-full items-center justify-center">
-        <div className="select-none font-medium">{ExerciseName}</div>
-      </div>
-    </motion.div>
-  );
+export default function ExerciseCard({ Exercise }: { Exercise: Exercise }) {
+	return (
+		<motion.div
+			layout
+			className={
+				"h-[15%] w-[50%] rounded-md border-[2px] border-black p-2"
+			}
+		>
+			{/*Container for Information */}
+			<div className="flex h-full w-full flex-col items-center justify-start gap-1">
+				<div className="text-lg underline">
+					{Exercise.exerciseName.toUpperCase()}
+				</div>
+				<div className="flex h-full w-full items-center justify-center gap-3">
+					<div className="">
+						{Exercise.repetitions + " repetitions"}
+					</div>
+					<div className="">{Exercise.sets + " sets"}</div>
+				</div>
+			</div>
+		</motion.div>
+	);
 }
