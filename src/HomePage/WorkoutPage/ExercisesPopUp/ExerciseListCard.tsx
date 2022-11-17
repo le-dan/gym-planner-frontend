@@ -24,19 +24,20 @@ export default function ExerciseListCard({ Workout }: { Workout: Workout }) {
 	return (
 		/* Pop Up Container Card*/
 		<motion.div className="loginCard z-40 flex h-[85%] w-[50%] flex-col items-center gap-3 bg-zinc-100 pt-[0.4rem] opacity-100">
+			{/* Workout Name */}
 			<div className="flex w-full justify-center">
 				<div className="rounded-xl bg-stone-900 px-5 shadow-sm">
-					<div className="select-none text-[3rem] text-white">
+					<div className="select-none text-[2rem] text-white">
 						{Workout.workoutName}
 					</div>
 				</div>
 			</div>
 			{/* Exercise List Container */}
-			<div className="flex h-[90%] w-[100%] flex-col gap-4 rounded-3xl bg-zinc-50 p-6 shadow-2xl">
+			<div className="flex h-[90%] w-[100%] flex-col flex-wrap justify-items-start gap-3 rounded-3xl bg-zinc-50 p-6 shadow-2xl">
 				{/* Exercise List */}
 				{exerciseList}
 				{/* Add Exercise Card */}
-				<div className="flex h-[2em] w-[50%] justify-center">
+				<div className="flex h-[2em] w-[30%] justify-center">
 					<AddExerciseCard
 						setTrigger={setTriggerNewExercise}
 						trigger={triggerNewExercise}

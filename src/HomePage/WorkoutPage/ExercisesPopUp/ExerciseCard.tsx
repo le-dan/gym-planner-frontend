@@ -3,10 +3,11 @@ import Exercise from "../../../interfaces/Exercise";
 
 export default function ExerciseCard({ Exercise }: { Exercise: Exercise }) {
 	return (
+		// Exercise Card
 		<motion.div
 			layout
 			className={
-				"h-[15%] w-[50%] rounded-md border-[2px] border-black p-2"
+				"h-[15%] w-[30%] overflow-hidden rounded-md border-[2px] border-black p-2"
 			}
 		>
 			{/*Container for Information */}
